@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recommens</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://kit.fontawesome.com/dc8fdae1cf.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+
+     <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav class="nav navbar-nav navbar-left">
+          <p>recommens</p>
+        </nav>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <dl class="searchbox">
+                <%= search_form_for @search, url: shops_path do |f| %>
+                  <span><%= f.text_field :name_cont ,placeholder: 'お店を検索' %></span>
+                  <span><%= f.submit "検索" %></span>
+                <% end %>
+              </dl>
+              <li><%= link_to "マイページ", user_path(current_user.id), class:"btn btn-default btn-sm " %></li>
+              <li><%= link_to "一覧", shops_path, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "投稿", new_shop_path, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-default btn-sm" %></li>
+            <% else %>
+              <li><%= link_to "About", about_path, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "一覧", shops_path, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "新規登録", new_user_registration_path, class:"btn btn-default btn-sm"  %></li>
+              <li><%= link_to "ログイン", new_user_session_path, class:"btn btn-default btn-sm" %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <%= yield %>
+  </body>
+</html>
