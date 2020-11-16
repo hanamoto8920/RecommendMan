@@ -1,0 +1,15 @@
+<!--コメント部分-->
+<% shop.comments.each do |comment_text| %>
+  <%= comment_text.comment %>
+  <% if comment_text.user == current_user %>
+    <div>
+      <%= link_to "削除",shop_comment_path(comment_text.shop, comment_text), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
+    </div>
+  <% end %>
+<% end %>
+
+<!--コメントフォーム部分-->
+<%= form_with(model:[shop, comment], remote: true) do |f| %>
+  <%= f.text_area :comment, class: "form-control",placeholder: "コメントをここに" %>
+  <%= f.submit "コメント", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+<% end %>

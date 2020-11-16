@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   
   # ログイン後、遷移ページ
   def after_sign_in_path_for(resource)
-    new_shop_path
+    root_path
   end
   
   
