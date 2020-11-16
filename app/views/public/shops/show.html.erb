@@ -11,45 +11,16 @@
         <P><%= @shop.url %></P>
         <%= link_to "編集する", edit_shop_path(@shop) %>
         <%= link_to '削除する', shop_path(@shop), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-
-        <!--いいね部分-->
-        <% if @shop.liked_by?(current_user) %>
-        <li>
-          <%= link_to shop_likes_path(@shop), method: :delete do %>
-            <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-          <% end %>
-          <%= @shop.likes.count %>いいね
-        </li>
-        <% else %>
-        <li>
-          <%= link_to shop_likes_path(@shop), method: :post do %>
-            <i class="fa fa-heart-o" aria-hidden="true"></i>
-          <% end %>
-          <%= @shop.likes.count %>いいね
-        </li>
-        <% end %>
         
-        <!--コメント部分-->
-        <% @shop.comments.each do |comment_text| %>
-          <%= comment_text.comment %>
-          <% if comment_text.user == current_user %>
-            <div>
-              <%= link_to "削除",shop_comment_path(comment_text.shop, comment_text), method: :delete, class: "btn btn-danger pull-right" %>
-            </div>
-          <% end %>
-        <% end %>
+        <!--いいね部分テンプレ-->
+        <div id="likes_buttons_<%= @shop.id %>">
+             <%= render partial: 'public/likes/like', locals: { shop: @shop } %>
+        </div>
         
-        <!-- <form class="mt-20"> -->
-        <%= form_with(model:[@shop, @comment], local: true) do |f| %>
-          <div class="row">
-            <div class="col-sm-12">
-              <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
-            </div>
-          </div>
-          <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
-        <% end %>
-        <!-- </form> -->
-
+        <!--コメント部分テンプレ-->
+         <div id="comments_buttons_<%= @shop.id %>">
+             <%= render partial: 'public/comments/comment', locals: { shop: @shop, comment: @comment} %>
+         </div>
       </div>
     </div>
   </div>
