@@ -64,7 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 # ブートストラップ４を利用する
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 
 # 画像投稿用gem

@@ -9,52 +9,22 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <% if user_signed_in? %>
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <%= link_to "マイページ", user_path(current_user.id), class:"btn btn-default btn-sm" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "一覧", shops_path, class:"btn btn-default btn-sm" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "投稿", new_shop_path, class:"btn btn-default btn-sm" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-default btn-sm" %>
-            </li>
-          </ul>
-          <form class="searchbox">
-            <%= search_form_for @search, url: shops_path do |f| %>
-              <span><%= f.text_field :name_cont ,placeholder: 'お店を検索' %></span>
-              <span><%= f.submit "検索" %></span>
-            <% end %>
-          </form>
-        <% else %>
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <%= link_to "About", about_path, class:"btn btn-default btn-sm" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "一覧", shops_path, class:"btn btn-default btn-sm" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "新規登録", new_user_registration_path, class:"btn btn-default btn-sm"  %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ログイン", new_user_session_path, class:"btn btn-default btn-sm" %>
-            </li>
-          </ul>
-        <% end %>
+    <div class="container body-line">
+      <div class="row">
+        <div class="header-line">
+          <%= render "layouts/header" %>
+        </div>
       </div>
-    </nav>
-
-    <%= yield %>
+      <div class="row" style="margin-top: 100px;">
+        <%= yield %>
+      </div>
+      <div class="row margin-top-sm">
+        <footer></footer>
+      </div>
+    </div>
   </body>
 </html>

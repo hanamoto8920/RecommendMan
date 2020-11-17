@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     get "/complete", :to => "users#complete"
     root :to => "homes#top"
     get "/about", :to => "homes#about"
+    resources :genres
+    resources :places, only: [:create, :index]
   end
 end

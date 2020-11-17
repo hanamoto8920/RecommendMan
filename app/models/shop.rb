@@ -4,6 +4,9 @@ class Shop < ApplicationRecord
   validates :name, presence: true
   validates :image, presence: true
   
+  belongs_to :genre
+  belongs_to :place
+  
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   
