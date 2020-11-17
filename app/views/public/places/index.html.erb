@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>エリア追加・一覧</h1>
+      <%= form_with model: @place, url:places_path, local:true do |f| %>
+        <%= f.text_field :name, class: "name" %>
+        <%= f.submit '追加', class: "btn btn-info active" %>
+      <% end %>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>地方</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @places.each do |place| %>
+          <tr>
+            <td><%= place.name %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    </div>
+
+  </div>
+</div>

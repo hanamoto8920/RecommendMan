@@ -1,27 +1,32 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <div class="shop-show">
-        <%= attachment_image_tag @shop, :image, :fill, 300,  300, format: 'jpeg' %>
-        <h2>店名</h2>
-        <p><%= @shop.name %></p>
-        <h2>紹介文</h2>
-        <P><%= @shop.introduction %></P>
-        <h2>サイトURL</h2>
-        <P><%= @shop.url %></P>
-        <%= link_to "編集する", edit_shop_path(@shop) %>
-        <%= link_to '削除する', shop_path(@shop), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-        
-        <!--いいね部分テンプレ-->
-        <div id="likes_buttons_<%= @shop.id %>">
-             <%= render partial: 'public/likes/like', locals: { shop: @shop } %>
-        </div>
-        
-        <!--コメント部分テンプレ-->
-         <div id="comments_buttons_<%= @shop.id %>">
-             <%= render partial: 'public/comments/comment', locals: { shop: @shop, comment: @comment} %>
-         </div>
+    <div class="col-xs-4">
+      <%= attachment_image_tag @shop, :image, :fill, 360,  360, format: 'jpeg' %>
+    </div>
+    <div class="col-xs-8">
+      <h2>店名</h2>
+      <p><%= @shop.name %></p>
+      <h2>紹介文</h2>
+      <P><%= @shop.introduction %></P>
+      <h2>サイトURL</h2>
+      <P><%= @shop.url %></P>
+      <h2>ジャンル</h2>
+      <p><%= @shop.genre.name %></p>
+      <h2>エリア</h2>
+      <p><%= @shop.place.name %></p>
+      <%= link_to "編集する", edit_shop_path(@shop) %>
+      <%= link_to '削除する', shop_path(@shop), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+
+      <!--いいね部分テンプレ-->
+      <div id="likes_buttons_<%= @shop.id %>">
+           <%= render partial: 'public/likes/like', locals: { shop: @shop } %>
+      </div>
+
+      <!--コメント部分テンプレ-->
+      <div id="comments_buttons_<%= @shop.id %>">
+           <%= render partial: 'public/comments/comment', locals: { shop: @shop, comment: @comment} %>
       </div>
     </div>
+
   </div>
 </div>

@@ -1,7 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h1>TOPページ</h1>
+      <h1>エリアで検索する！</h1>
+      	<ul>
+      	  <% @places.each do |place| %>
+          <li><%= link_to place.name, shops_path(place: place.id) %></li>
+          <% end %>
+      	</ul>
+      <h1>ジャンルで検索する！</h1>
+      	<ul>
+      	  <% @genres.each do |genre| %>
+          <li><%= link_to genre.name, shops_path(genre: genre.id) %></li>
+          <% end %>
+      	</ul>
+
     </div>
   </div>
 </div>

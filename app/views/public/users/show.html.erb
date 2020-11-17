@@ -1,18 +1,25 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+      <h1>マイページ</h1><br>
+      <h2>名前</h2>
+      <%= @user.name %>
+      <h2>メールアドレス</h2>
+      <%= @user.email %>
+
       <h2>いいねリスト</h2>
       <table class="table">
       <% @user.likes.each do |like| %>
         <tr>
           <th>
             <%= link_to shop_path(like.shop) do %>
-              <%= attachment_image_tag like.shop, :image, :fill, 300, 300, format: 'jpeg' %>
+              <%= attachment_image_tag like.shop, :image, :fill, 100, 100, format: 'jpeg' %>
             <% end %>
           </th>
+          <th><%= like.shop.name %></th>
         </tr>
       <% end %>
-      </table>
     </div>
+      </table>
   </div>
 </div>

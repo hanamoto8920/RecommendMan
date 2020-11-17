@@ -2,16 +2,41 @@
   <div class="row">
     <div class="col-xs-12">
       <h1>お店一覧</h1>
-        <div class="col-lg-4">
-          <% @search_shops.each do |shop| %>
-          <p>
-            <%= link_to shop_path(shop), data: {"turbolinks" => false} do %>
-              <%= attachment_image_tag shop, :image, :fill, 300, 300, format: 'jpeg' %>
-            <% end %>
-          </p>
+
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+    		<p>エリア検索</p>
+    		<span class="caret"></span>
+      	</button>
+      	<ul class="dropdown-menu" role="menu">
+      	  <% @places.each do |place| %>
+          <li role="presentation"><%= link_to place.name, shops_path(place: place.id) %></li>
           <% end %>
-        </div>
+      	</ul>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+      		<p>ジャンル検索</p>
+      		<span class="caret"></span>
+    	  </button>
+      	<ul class="dropdown-menu" role="menu">
+      	  <% @genres.each do |genre| %>
+          <li role="presentation"><%= link_to genre.name, shops_path(genre: genre.id) %></li>
+          <% end %>
+      	</ul>
+      </div>
+
     </div>
   </div>
-</div>
+  <div class="row">
+    <% @search_shops.each do |shop| %>
+      <div class="col-xs-4">
+        <%= link_to shop_path(shop), data: {"turbolinks" => false} do %>
+          <%= attachment_image_tag shop, :image, :fill, 300, 300, format: 'jpeg' %>
+        <% end %> <br></br>
+      </div>
+    <% end %>
+  </div>
 
+</div>
