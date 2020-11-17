@@ -17,3 +17,28 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.navbar{
+    height: 110px;
+    border-radius: 0;
+    border: none;
+    background-color: #770000;
+}
+
+.logo {
+  width: 180px;
+  height: 110px;
+  background-image: url(recommens.jpg);
+  background-size: cover;
+}
+
+body {
+  background-color: #FFDBC9;
+}
+.top-logo {
+  width: 600px;
+  height: 350px;
+  background-image: url(recommens.jpeg);
+  background-size: cover;
+}

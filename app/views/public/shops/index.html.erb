@@ -31,9 +31,9 @@
   </div>
   <div class="row">
     <% @search_shops.each do |shop| %>
-      <div class="col-xs-4">
+      <div class="col-xs-3">
         <%= link_to shop_path(shop), data: {"turbolinks" => false} do %>
-          <%= attachment_image_tag shop, :image, :fill, 300, 300, format: 'jpeg' %>
+          <%= attachment_image_tag shop, :image, :fill, 280, 280, format: 'jpeg' %>
         <% end %> <br></br>
       </div>
     <% end %>
