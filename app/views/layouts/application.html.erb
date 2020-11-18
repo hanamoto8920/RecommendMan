@@ -13,18 +13,12 @@
   </head>
 
   <body>
-    <div class="container body-line">
-      <div class="row">
-        <div class="header-line">
-          <%= render "layouts/header" %>
-        </div>
-      </div>
-      <div class="row" style="margin-top: 100px;">
-        <%= yield %>
-      </div>
-      <div class="row margin-top-sm">
-        <footer></footer>
-      </div>
-    </div>
+  <div class="header-line" style="margin-bottom: 120px;">
+    <%= render "layouts/header" %>
+  </div>
+  <%= yield %>
+  <footer>
+    <p class="footer-text">© All rights reserved by Recommens.Inc.</p>
+  </footer>
   </body>
 </html>

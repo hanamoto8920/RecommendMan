@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show,:complete]
 
   def show
     @user = User.find(current_user.id)

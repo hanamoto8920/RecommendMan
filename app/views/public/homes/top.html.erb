@@ -1,19 +1,37 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h1>エリアで検索する！</h1>
-      	<ul>
-      	  <% @places.each do |place| %>
-          <li><%= link_to place.name, shops_path(place: place.id) %></li>
-          <% end %>
-      	</ul>
-      <h1>ジャンルで検索する！</h1>
-      	<ul>
-      	  <% @genres.each do |genre| %>
-          <li><%= link_to genre.name, shops_path(genre: genre.id) %></li>
-          <% end %>
-      	</ul>
-
+    <div class="main">
+      <div class="top-logo col-xs-offset-3"></div>
     </div>
   </div>
 </div>
+
+<div class="about">
+  <div class="about-bar">
+      "About Recommens"
+  </div>
+  <div class="about-content">
+      Recommens(リコメンズ)は、
+      </br>
+      あなたがオススメする飲食店を
+      </br>
+      紹介するサイトです
+      </br>
+      どのようなお店があるか見てみよう！
+  </div>
+  <div class="about-shop-button">
+    <%= link_to "お店の一覧を見る", shops_path, class:"btn btn-primary btn-lg" %>
+  </div>
+  <div class="about-user-content">
+    Recommens(リコメンズ)では、
+    </br>
+    あなたがオススメする飲食店を紹介スロことができます！
+    </br>
+    ぜひアカウント登録をして、紹介してみよう！
+  </div>
+  <div class="about-user-button">
+    <%= link_to "ログイン画面へ", new_user_session_path, class:"btn btn-success btn-lg" %>
+    <%= link_to "新規登録画面へ", new_user_registration_path, class:"btn btn-success btn-lg" %>
+  </div>
+</div>
+

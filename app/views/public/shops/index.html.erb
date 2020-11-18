@@ -1,39 +1,31 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h1>お店一覧</h1>
-
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-    		<p>エリア検索</p>
-    		<span class="caret"></span>
-      	</button>
-      	<ul class="dropdown-menu" role="menu">
-      	  <% @places.each do |place| %>
-          <li role="presentation"><%= link_to place.name, shops_path(place: place.id) %></li>
+    <div class="search-area-genre col-xs-12" style="margin: 20px 0;">
+      <div class="search-area col-xs-6">
+        <ul class="search-area-list">
+          場所で探す
+          <% @places.each do |place| %>
+          <li class="search-area-list-place"><%= link_to place.name, shops_path(place: place.id) %></li>
           <% end %>
-      	</ul>
+        </ul>
       </div>
 
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-      		<p>ジャンル検索</p>
-      		<span class="caret"></span>
-    	  </button>
-      	<ul class="dropdown-menu" role="menu">
-      	  <% @genres.each do |genre| %>
-          <li role="presentation"><%= link_to genre.name, shops_path(genre: genre.id) %></li>
+      <div class="search-genre col-xs-6">
+        <ul class="search-genre-list">
+          ジャンルで探す
+          <% @genres.each do |genre| %>
+          <li class="search-genre-list-genre"><%= link_to genre.name, shops_path(genre: genre.id) %></li>
           <% end %>
-      	</ul>
+        </ul>
       </div>
-
     </div>
   </div>
-  <div class="row">
+
+  <div class="shop-list row">
     <% @search_shops.each do |shop| %>
-      <div class="col-xs-4">
+      <div class="col-xs-3">
         <%= link_to shop_path(shop), data: {"turbolinks" => false} do %>
-          <%= attachment_image_tag shop, :image, :fill, 300, 300, format: 'jpeg' %>
+          <%= attachment_image_tag shop, :image, :fill, 250, 250, format: 'jpeg', style:"border-radius: 10px;" %>
         <% end %> <br></br>
       </div>
     <% end %>
