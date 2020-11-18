@@ -1,13 +1,13 @@
  <!--いいね部分-->
 <% if shop.liked_by?(current_user) %>
-  <li>
+  <li class="like-bottom">
     <%= link_to shop_likes_path(shop), method: :delete, remote: true do %>
       <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
     <% end %>
     <%= shop.likes.count %>いいね
   </li>
  <% else %>
-  <li>
+  <li class="like-bottom">
     <%= link_to shop_likes_path(shop), method: :post, remote: true do %>
       <i class="fa fa-heart-o" aria-hidden="true"></i>
     <% end %>

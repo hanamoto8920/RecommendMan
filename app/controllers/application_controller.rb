@@ -7,10 +7,4 @@ class ApplicationController < ActionController::Base
     @search_shops = @search.result.all
   end
 
-  # ログイン後、遷移ページ
-  def after_sign_up_path_for(resource)
-    complete_path
-  end
-
-
 end
