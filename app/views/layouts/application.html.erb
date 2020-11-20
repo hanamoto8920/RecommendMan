@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recommens</title>
+    <title>Recommens(リコメンズ)</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,7 +18,12 @@
   </div>
   <%= yield %>
   <footer>
-    <p class="footer-text">© All rights reserved by Recommens.Inc.</p>
+    <p class="footer-text">© All rights reserved by Recommens.Inc.
+      <a  href="https://api.gnavi.co.jp/api/scope/" target="_blank">
+        <img class="gurunavi-img" src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="265" height="65" border="0" alt="グルメ情報検索サイト　ぐるなび">
+      </a>
+    </p>
+
   </footer>
   </body>
 </html>

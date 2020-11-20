@@ -1,6 +1,6 @@
 class Public::ShopsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :destroy]
-
+  
   def index
     genre = Genre.find_by(id: params[:genre])
     place = Place.find_by(id: params[:place])
