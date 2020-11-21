@@ -8,7 +8,7 @@
         <% if user_signed_in? %>
           <li><%= link_to "マイページ", user_path(current_user.id), class:"btn btn-warning btn-lg " %></li>
           <li><%= link_to "一覧", shops_path, class:"btn btn-warning btn-lg" %></li>
-          <li><%= link_to "投稿", new_shop_path, class:"btn btn-warning btn-lg" %></li>
+          <li><%= link_to "投稿", new_shop_path, class:"btn btn-warning btn-lg", data: {"turbolinks" => false} %></li>
           <li><%= link_to "ジャンル一覧", genres_path, class:"btn btn-warning btn-lg" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-warning btn-lg" %></li>
           <form class="searchbox">

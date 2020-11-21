@@ -14,11 +14,13 @@
         <h2>紹介文</h2>
         <P><%= @shop.introduction %></P>
         <h2>サイトURL</h2>
-        <P><%= @shop.url %></P>
+        <%= link_to "ぐるなびで見る", @shop.url, target: :_blank, class:"btn btn-success btn-lg" %>
         <h2>ジャンル</h2>
-        <p><%= @shop.genre.name %></p>
-        <h2>エリア</h2>
-        <p><%= @shop.place.name %></p>
+        <p><%= @shop.category %></p>
+        <h2>住所</h2>
+        <p><%= @shop.address %></p>
+        <h2>営業時間</h2>
+        <p><%= @shop.opentime %></p>
         <%= link_to "編集する", edit_shop_path(@shop), class:"btn btn-warning btn-lg" %>
         <%= link_to '削除する', shop_path(@shop), method: :delete, class:"btn btn-warning btn-lg", "data-confirm" => "本当に削除しますか？" %>
       </div>
@@ -28,7 +30,7 @@
     <div id="comments_buttons_<%= @shop.id %>">
          <%= render partial: 'public/comments/comment', locals: { shop: @shop, comment: @comment} %>
     </div>
-    
+
   </div>
 </div>
 
