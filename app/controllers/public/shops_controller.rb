@@ -1,6 +1,6 @@
 class Public::ShopsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :destroy]
-  
+
   def index
     genre = Genre.find_by(id: params[:genre])
     place = Place.find_by(id: params[:place])
@@ -42,7 +42,7 @@ class Public::ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
       redirect_to shop_path(@shop)
-    else 
+    else
       render :edit
     end
   end
@@ -55,7 +55,7 @@ class Public::ShopsController < ApplicationController
 
   private
   def shop_params
-    params.require(:shop).permit(:name, :url, :introduction, :image, :genre_id, :place_id)
+    params.require(:shop).permit(:name, :url, :introduction, :image, :category, :address, :opentime ,:place_id)
   end
 
 end
