@@ -60,8 +60,27 @@
 
 
 // 検索結果のcss
-.rest {
+.rest{
+  font-size: 25px;
+  position: relative;
+  text-decoration: none;
+}
+
+.rest::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #2196F3;
+  transition: all 0.3s ease 0s;
+}
+
+
+.rest:hover {
   cursor: pointer;
-  font-size: 22px;
-  color: #333;
+}
+.rest:hover::after {
+  width: 100%;
 }

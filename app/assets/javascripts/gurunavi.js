@@ -17,13 +17,12 @@ $(function () {
           $("#shop_opentime").val(rest.opentime);
           $("#shop_address").val(rest.address);
           $("#shop_category").val(rest.category);
-        })
+        });
 
       　$.getJSON( url, params, result => {
           result.rest.forEach(function(r) {
             $('#js-rest').append('<div class="rest" data-name="'+ r.name  + '" data-url="' + r.url + '" data-opentime="'+ r.opentime  + '" data-address="' + r.address + '" data-category="' + r.category + '">' + r.name + '</div>')
-          })
+          });
         });
-''
       });
     })
