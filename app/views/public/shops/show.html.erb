@@ -2,7 +2,7 @@
   <div class="row">
     <div class="shop-show-main col-xs-12">
       <div class="shop-show-img col-xs-4">
-        <%= attachment_image_tag @shop, :image, :fill, 440,  440, format: 'jpeg', style:"border-radius: 10px;" %>
+        <%= attachment_image_tag @shop, :image, :fill, 300,  300, format: 'jpeg', style:"border-radius: 10px;" %>
         <!--いいね部分テンプレ-->
         <div id="likes_buttons_<%= @shop.id %>">
              <%= render partial: 'public/likes/like', locals: { shop: @shop } %>
@@ -15,22 +15,25 @@
         <P><%= @shop.introduction %></P>
         <h2>サイトURL</h2>
         <%= link_to "ぐるなびで見る", @shop.url, target: :_blank, class:"btn btn-success btn-lg" %>
-        <h2>ジャンル</h2>
-        <p><%= @shop.category %></p>
-        <h2>住所</h2>
-        <p><%= @shop.address %></p>
-        <h2>営業時間</h2>
-        <p><%= @shop.opentime %></p>
-        <%= link_to "編集する", edit_shop_path(@shop), class:"btn btn-warning btn-lg" %>
+        <% if  @shop.category.present? %>
+          <h2>ジャンル</h2>
+          <p><%= @shop.category %></p>
+        <% end %>
+        <% if  @shop.address.present? %>
+          <h2>住所</h2>
+          <p><%= @shop.address %></p>
+        <% end %>
+        
+        <% if  @shop.opentime.present? %>
+          <h2>営業時間</h2>
+          <p><%= @shop.opentime %></p>
+        <% end %>
         <%= link_to '削除する', shop_path(@shop), method: :delete, class:"btn btn-warning btn-lg", "data-confirm" => "本当に削除しますか？" %>
       </div>
     </div>
-
     <!--コメント部分テンプレ-->
     <div id="comments_buttons_<%= @shop.id %>">
          <%= render partial: 'public/comments/comment', locals: { shop: @shop, comment: @comment} %>
     </div>
-
   </div>
 </div>
-

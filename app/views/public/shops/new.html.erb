@@ -31,7 +31,8 @@
                     <%= f.collection_select :place_id, Place.all, :id, :name %>
                     <h4>画像</h4>
                     <%= f.attachment_field :image %>
-                    <%= f.submit '紹介する' %>
+                    <br></br>
+                    <%= f.submit '紹介する', class:"btn btn-primary btn-lg" %>
                 <% end %>
             </div>
         </div>

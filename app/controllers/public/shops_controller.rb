@@ -2,16 +2,12 @@ class Public::ShopsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :destroy]
 
   def index
-    genre = Genre.find_by(id: params[:genre])
     place = Place.find_by(id: params[:place])
-    @places = Place.all
-    @genres = Genre.all
-    if place.nil? && genre.nil?
-      @search_shops = Shop.all
-    elsif genre.nil?
-      @search_shops = Shop.where(place_id: place.id)
+    @places = Place.all.order(created_at: :desc)
+    if place.nil?
+      @shops = Shop.all.order(created_at: :desc)
     else
-      @search_shops = Shop.where(genre_id: genre.id)
+      @shops = Shop.where(place_id: place.id).order(created_at: :desc)
     end
   end
 
