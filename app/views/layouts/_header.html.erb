@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-inverse">
   <div class="container">
     <nav class="nav navbar-nav navbar-left">
       <div class="logo"></div>
@@ -6,18 +6,12 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= link_to "マイページ", user_path(current_user.id), class:"btn btn-warning btn-lg " %></li>
+          <li><%= link_to "マイページ", user_path(current_user.id), class:"btn btn-warning btn-lg" %></li>
           <li><%= link_to "一覧", shops_path, class:"btn btn-warning btn-lg" %></li>
           <li><%= link_to "投稿", new_shop_path, class:"btn btn-warning btn-lg", data: {"turbolinks" => false} %></li>
-          <li><%= link_to "ジャンル一覧", genres_path, class:"btn btn-warning btn-lg" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-warning btn-lg" %></li>
-          <form class="searchbox">
-            <%= search_form_for @search, url: shops_path do |f| %>
-              <span><%= f.text_field :name_cont ,placeholder: 'お店を検索' %></span>
-              <span><%= f.submit "検索" %></span>
-            <% end %>
-          </form>
         <% else %>
+          <li><%= link_to "トップ", root_path, class:"btn btn-warning btn-lg" %></li>
           <li><%= link_to "一覧", shops_path, class:"btn btn-warning btn-lg" %></li>
           <li><%= link_to "新規登録", new_user_registration_path, class:"btn btn-warning btn-lg" %></li>
           <li><%= link_to "ログイン", new_user_session_path, class:"btn btn-warning btn-lg" %></li>

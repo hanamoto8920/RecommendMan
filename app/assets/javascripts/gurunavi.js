@@ -12,7 +12,7 @@ $(function () {
         };
         $('#js-rest').on('click', '.rest', function(){
           var rest = $(this).data()
-           $("#shop_name").val(rest.name);
+          $("#shop_name").val(rest.name);
           $("#shop_url").val(rest.url);
           $("#shop_opentime").val(rest.opentime);
           $("#shop_address").val(rest.address);

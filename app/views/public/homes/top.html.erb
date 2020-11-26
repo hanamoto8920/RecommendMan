@@ -1,7 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="main">
-      <div class="top-logo col-xs-offset-3"></div>
+      <div id="container">
+        <div id="theTarget">
+          <div class="slide-image1"></div>
+          <div class="slide-image2"></div>
+          <div class="slide-image3"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -13,25 +19,29 @@
   <div class="about-content">
       Recommens(リコメンズ)は、
       </br>
-      あなたがオススメする飲食店を
-      </br>
-      紹介するサイトです
+      みんなのオススメ！を紹介しあうサイトです
       </br>
       どのようなお店があるか見てみよう！
+      <br></br>
+      <div class="about-shop-button">
+        <%= link_to "お店の一覧を見る", shops_path, class:"btn btn-primary btn-lg" %>
+      </div>
   </div>
-  <div class="about-shop-button">
-    <%= link_to "お店の一覧を見る", shops_path, class:"btn btn-primary btn-lg" %>
+  <div class="about-bar">
+    さあ登録してみましょう！
   </div>
   <div class="about-user-content">
     Recommens(リコメンズ)では、
     </br>
-    あなたがオススメする飲食店を紹介スロことができます！
+    あなたのオススメする飲食店を紹介することができます！
     </br>
     ぜひアカウント登録をして、紹介してみよう！
-  </div>
-  <div class="about-user-button">
-    <%= link_to "ログイン画面へ", new_user_session_path, class:"btn btn-success btn-lg" %>
-    <%= link_to "新規登録画面へ", new_user_registration_path, class:"btn btn-success btn-lg" %>
+    <br></br>
+    
+    <div class="about-user-button">
+      <%= link_to "ログイン画面へ", new_user_session_path, class:"btn btn-success btn-lg" %>
+      <%= link_to "新規登録画面へ", new_user_registration_path, class:"btn btn-success btn-lg" %>
+    </div>
   </div>
 </div>
 

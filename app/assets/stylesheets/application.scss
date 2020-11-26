@@ -83,7 +83,6 @@ body {
   margin: 0 auto;
   padding-bottom: 10px;
   text-align: center;
-  border-bottom: 8px solid #f7f7f7;
 }
 
 .about-user-content {
@@ -100,17 +99,22 @@ body {
   text-align: center;
 }
 
-.search-area-genre {
-  margin: 0 auto;
+.search-area {
+  margin: 40 auto;
   padding: 3px 0;
   background-color: #FF8C00;
   border-radius: 5px;
 }
 
-.search-area {
+.search-text {
+  margin: 0 auto;
+  height: 80px;
+  line-height: 80px;
   text-align: center;
-  background-color: #FFFAF0;
-  border-radius: 15px;
+  width: 250px;
+  font-size: 40px;
+  background-color: #FF9872;
+  border-radius: 5px;
 }
 
 .search-area-list {
@@ -122,23 +126,8 @@ body {
 
 .search-area-list-place {
   list-style: none;
-}
-
-.search-genre {
-  text-align: center;
-  border-radius: 15px;
-  background-color: #FDF5E6;
-}
-
-.search-genre-list {
-  padding: 10px 0;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 24px;
-}
-
-.search-genre-list-genre {
-  list-style: none;
+  height: 50px;
+  background-color: #FFEBCD;
 }
 
 .shop-list {
