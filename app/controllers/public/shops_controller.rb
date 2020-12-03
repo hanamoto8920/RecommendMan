@@ -23,6 +23,12 @@ class Public::ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     if @shop.save
+
+      tags = Vision.get_image_data(@shop.image)
+      tags.each do |tag|
+        @shop.tags.create(name: tag)
+      end
+
       redirect_to shops_path
     else
       @shops = Shop.all

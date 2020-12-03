@@ -3,6 +3,11 @@
     <div class="shop-show-main col-xs-12">
       <div class="shop-show-img col-xs-4">
         <%= attachment_image_tag @shop, :image, :fill, 300,  300, format: 'jpeg', style:"border-radius: 10px;" %>
+        <div class="tag-box">
+        <% @shop.tags.each do |tag| %>
+          <span class="label"><%= tag.name %></span>
+        <% end %>
+        </div>
         <!--いいね部分テンプレ-->
         <div id="likes_buttons_<%= @shop.id %>">
              <%= render partial: 'public/likes/like', locals: { shop: @shop } %>
